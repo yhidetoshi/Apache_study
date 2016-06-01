@@ -83,3 +83,24 @@ NameVirtualHost *:80　←　コメント解除(バーチャルホスト有効�
 </VirtualHost>
 ```
 
+`# vi /etc/httpd/conf.d/virtualhost-centossrv.com.conf`
+
+-> メインホスト用バーチャルホスト設定ファイル作成
+```
+<VirtualHost *:80>
+    ServerName centossrv.com
+    DocumentRoot /var/www/html
+</VirtualHost>
+```
+
+`# vi /etc/httpd/conf.d/virtualhost-virtual.com.conf`　
+
+-> 追加ホスト用バーチャルホスト設定ファイル作成
+```
+<VirtualHost *:80>
+    ServerName virtual.com
+    DocumentRoot /var/www/html/virtual
+    ErrorLog logs/virtual-error_log
+    CustomLog logs/virtual-access_log combined env=!no_log
+</VirtualHost>
+```
