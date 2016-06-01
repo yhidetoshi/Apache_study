@@ -131,3 +131,9 @@ NameVirtualHost *:80　←　コメント解除(バーチャルホスト有効�
 [root@chef-client1 httpd]# ls
 access_log  error_log  virtual-access_log  virtual-error_log
 ```
+
+
+- SSL終端
+- リダイレクト
+- 細かなチューニングあたり
+  - (タイムアウト時間、ファイルサイズとか)
