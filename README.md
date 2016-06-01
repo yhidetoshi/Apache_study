@@ -54,6 +54,32 @@ AddDefaultCharset UTF-8
 ```
 
 [出力表示]
+
 ![Alt Text](https://github.com/yhidetoshi/Pictures/raw/master/study-httpd/result1.png)
 
+
+##### バーチャルホストの設定
+
+# mkdir virtual
+
+/etc/httpd/conf/httpd.conf
+```
+#ServerName centossrv.com:80　←　行頭に#を追加してコメントアウト
+# Use name-based virtual hosting.
+#
+NameVirtualHost *:80　←　コメント解除(バーチャルホスト有効化)
+```
+
+`#vi /etc/httpd/conf.d/virtualhost-00.conf`
+
+```
+※バーチャルホスト未定義ホスト名でアクセス時にアクセスを拒否する
+<VirtualHost *:80>
+    ServerName any
+    <Location />
+        Order deny,allow
+        Deny from all
+    </Location>
+</VirtualHost>
+```
 
