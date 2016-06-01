@@ -53,15 +53,12 @@ AddDefaultCharset UTF-8
 </html>
 ```
 
-[出力表示]
+#####バーチャルホストの設定
 
-![Alt Text](https://github.com/yhidetoshi/Pictures/raw/master/study-httpd/result1.png)
+`#cd /var/www/html`
+`# mkdir virtual`
 
-
-##### バーチャルホストの設定
-
-# mkdir virtual
-
+**バーチャルホストで利用する設定(切り替え)**
 /etc/httpd/conf/httpd.conf
 ```
 #ServerName centossrv.com:80　←　行頭に#を追加してコメントアウト
@@ -103,4 +100,23 @@ NameVirtualHost *:80　←　コメント解除(バーチャルホスト有効�
     ErrorLog logs/virtual-error_log
     CustomLog logs/virtual-access_log combined env=!no_log
 </VirtualHost>
+```
+
+バーチャルホストの設定ができればhttpdを再起動する
+
+
+[テスト結果1]
+`# curl centossrv/hoge.html`
+```
+<html>
+   <p> hogehuga</p>
+</html>
+```
+
+[テスト結果2]
+`# curl virtual/hoge.html`
+```
+<html>
+   <p> virtalhost-test</p>
+</html>
 ```
