@@ -53,4 +53,7 @@ AddDefaultCharset UTF-8
 </html>
 ```
 
-![Alt Text](https://github.com/yhidetoshi/Pictures/raw/master/httpd_study/result1.png)
+[出力表示]
+![Alt Text](https://github.com/yhidetoshi/Pictures/raw/master/study-httpd/result1.png)
+
+
