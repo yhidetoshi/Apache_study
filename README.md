@@ -106,6 +106,7 @@ NameVirtualHost *:80　←　コメント解除(バーチャルホスト有効�
 
 
 [テスト結果1]
+
 `# curl centossrv/hoge.html`
 ```
 <html>
@@ -114,9 +115,18 @@ NameVirtualHost *:80　←　コメント解除(バーチャルホスト有効�
 ```
 
 [テスト結果2]
+
 `# curl virtual/hoge.html`
 ```
 <html>
    <p> virtalhost-test</p>
 </html>
+```
+
+[ログ出力の確認]
+```
+# pwd
+/var/log/httpd
+[root@chef-client1 httpd]# ls
+access_log  error_log  virtual-access_log  virtual-error_log
 ```
