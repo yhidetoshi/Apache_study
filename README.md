@@ -135,6 +135,10 @@ access_log  error_log  virtual-access_log  virtual-error_log
 
 - **SSL終端の設定(バーチャルホスト)**
   - オレオレ証明書で設定
+  - サーバネーム
+  - ログレベル
+  - ドキュメントルート設定
+  - ログ出力先の設定
   - タイムアウト時間の設定
   - KeepAliveのON/OFF
   - 最大同時受付リクエスト数
@@ -144,10 +148,17 @@ access_log  error_log  virtual-access_log  virtual-error_log
 ```
 #<VirtualHost *:80>
 <VirtualHost *:443>
+#サーバネーム
   ServerName centossrv
+  
+#ドキュメントルート
   DocumentRoot /var/www/html
+  
+#ログ出力先設定  
   ErrorLog logs/ssl_error_log
   TransferLog logs/ssl_access_log
+
+#ログレベル  
   LogLevel warn
 
 #SSLの設定
@@ -171,5 +182,4 @@ access_log  error_log  virtual-access_log  virtual-error_log
 ```
 
 - リダイレクト
-- 細かなチューニングあたり
-  - (ファイルサイズとか)
+
