@@ -133,7 +133,24 @@ access_log  error_log  virtual-access_log  virtual-error_log
 ```
 
 
-- SSL終端
+- **SSL終端の設定(バーチャルホスト)**
+  - オレオレ証明書で設定
+`# cat /etc/httpd/conf.d/virtualhost-centosrv.conf`
+```
+#<VirtualHost *:80>
+<VirtualHost *:443>
+  ServerName centossrv
+  DocumentRoot /var/www/html
+  ErrorLog logs/ssl_error_log
+  TransferLog logs/ssl_access_log
+  LogLevel warn
+  SSLEngine on
+  SSLProtocol all -SSLv2
+  SSLCertificateFile /etc/httpd/conf/localhost.crt
+  SSLCertificateKeyFile /etc/httpd/conf/localhost.key
+</VirtualHost>
+```
+
 - リダイレクト
 - 細かなチューニングあたり
   - (タイムアウト時間、ファイルサイズとか)
