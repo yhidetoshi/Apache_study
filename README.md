@@ -134,15 +134,14 @@ access_log  error_log  virtual-access_log  virtual-error_log
 
 
 - **SSL終端の設定(バーチャルホスト)**
-  - オレオレ証明書で設定
-  - サーバネーム
-  - ログレベル
-  - ドキュメントルート設定
-  - ログ出力先の設定
-  - タイムアウト時間の設定
-  - KeepAliveのON/OFF
-  - 最大同時受付リクエスト数
-  - KeepAliveの時間設定
+- サーバネーム
+- ログレベル
+- ドキュメントルート設定
+- ログ出力先の設定
+- タイムアウト時間の設定
+- KeepAliveのON/OFF
+- 最大同時受付リクエスト数
+- KeepAliveの時間設定
 
 `# cat /etc/httpd/conf.d/virtualhost-centosrv.conf`
 ```
