@@ -135,6 +135,11 @@ access_log  error_log  virtual-access_log  virtual-error_log
 
 - **SSL終端の設定(バーチャルホスト)**
   - オレオレ証明書で設定
+  - タイムアウト時間の設定
+  - KeepAliveのON/OFF
+  - 最大同時受付リクエスト数
+  - KeepAliveの時間設定
+
 `# cat /etc/httpd/conf.d/virtualhost-centosrv.conf`
 ```
 #<VirtualHost *:80>
@@ -144,13 +149,27 @@ access_log  error_log  virtual-access_log  virtual-error_log
   ErrorLog logs/ssl_error_log
   TransferLog logs/ssl_access_log
   LogLevel warn
+
+#SSLの設定
   SSLEngine on
   SSLProtocol all -SSLv2
   SSLCertificateFile /etc/httpd/conf/localhost.crt
   SSLCertificateKeyFile /etc/httpd/conf/localhost.key
+
+#タイムアウト時間  
+  Timeout 60
+
+#KeepAliveの時間
+  KeepAlive Off
+
+#最大同時リクエスト受付数
+  MaxKeepAliveRequests 100
+
+#KeepAliveの時間設定 
+  KeepAliveTimeout 15  
 </VirtualHost>
 ```
 
 - リダイレクト
 - 細かなチューニングあたり
-  - (タイムアウト時間、ファイルサイズとか)
+  - (ファイルサイズとか)
