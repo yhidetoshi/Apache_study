@@ -183,3 +183,9 @@ access_log  error_log  virtual-access_log  virtual-error_log
 
 - リダイレクト
 
+(次やること)
+- htaccess
+- .htpasswd
+- include 
+- Env
+をあたりを使って適当なサイトを作ってみる。
